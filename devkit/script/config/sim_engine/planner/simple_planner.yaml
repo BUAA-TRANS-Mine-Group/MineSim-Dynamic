@@ -1,0 +1,10 @@
+simple_planner:
+  _target_: devkit.sim_engine.planning.planner.simple_planner.SimplePlanner
+  _convert_: "all"
+  horizon_seconds: 10.0
+  sampling_time: 0.25
+  acceleration: [0.0, 0.0] # x (longitudinal), y (lateral)
+  max_velocity: 5.0
+  steering_angle: 0.0
+
+  thread_safe: true # 构建 planner，确保只保留 1 个非线程安全的实例

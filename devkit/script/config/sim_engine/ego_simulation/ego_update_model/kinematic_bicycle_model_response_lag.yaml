@@ -1,0 +1,10 @@
+_target_: devkit.sim_engine.ego_simulation.ego_update_model.kinematic_bicycle_model_response_lag.KinematicBicycleModelResponseLag
+_convert_: "all"
+
+# read scenario file(.JSON) and real-time setup
+vehicle: null
+max_steering_angle: null
+# 加速度低通滤波器时间常数
+accel_time_constant: null
+# 转向器低通滤波器时间常数
+steering_angle_time_constant: null

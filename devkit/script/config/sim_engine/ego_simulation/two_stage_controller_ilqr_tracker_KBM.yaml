@@ -1,0 +1,28 @@
+_target_: devkit.sim_engine.ego_simulation.two_stage_controller.TwoStageController
+_convert_: "all"
+
+defaults:
+  # [pure_pursuit_tracker;lqr_tracker;ilqr_tracker]
+  - ego_motion_controller: ilqr_tracker
+  # [kinematic_bicycle_model;kinematic_bicycle_model_response_lag;kinematic_bicycle_model_response_lag_road_slope]
+  - ego_update_model: kinematic_bicycle_model
+
+  # "two_stage_controller": {
+  #       # !only for two_stage_controller; also call trajectory tracker
+  #       "ego_motion_controller": {
+  #           "current_controller": "motion_controller_lqr",
+  #           "controllers": [
+  #               "pure_pursuit_tracker", # todo 暂时不支持;
+  #               "lqr_tracker",
+  #               "ilqr_tracker",
+  #           ],
+  #       },
+  #       "ego_update_model": {
+  #           "current_model": "kinematic_bicycle_model_response_lag",
+  #           "models": [
+  #               "kinematic_bicycle_model",  # "KBM":  Kinematic Bicycle Model (KBM)
+  #               "kinematic_bicycle_model_response_lag",  # "KBM_wRL": Bicycle Model with Response Lag (KBM-wRL)
+  #               "kinematic_bicycle_model_response_lag_road_slope",  # todo 暂时不支持;"KBM_wRLwRS": Bicycle Model with Response Lag and Road Slope (KBM-wRLwRS)
+  #           ],
+  #       },
+  #   },

@@ -1,162 +1,368 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+#############################################
+# 操作系统（OS）相关临时文件
+#############################################
 
-# C extensions
-*.so
+# macOS 产生的元数据文件
+.DS_Store                 # macOS 上常见的缓存文件
+.AppleDouble              # macOS 双流文件
+.LSOverride               # macOS Launch Services 缓存
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+# 防止 macOS Finder 在 USB、网络驱动器等生成的文件
+._*
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+# Windows 系统产生的文件
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+# Linux 常见的临时文件
+*~
+.nfs*
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-cover/
+#############################################
+# 常见编辑器 / IDE / 构建工具 相关文件
+#############################################
 
-# Translations
-*.mo
-*.pot
+# IntelliJ IDEA / Android Studio / PyCharm 等 JetBrains 系列
+.idea/
+*.iml
+*.iws
+*.ipr
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+# Eclipse
+.project
+.classpath
+.settings/
 
-# Flask stuff:
-instance/
-.webassets-cache
+ 
+# Visual Studio
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.pdb
+*.opendb
+*.VC.db
+.vs/
 
-# Scrapy stuff:
-.scrapy
+# CMake 相关文件
+CMakeCache.txt
+CMakeFiles/
+cmake-build-*/
+Makefile
+CMakeScripts/
+Testing/
+CTestTestfile.cmake
+install_manifest.txt
 
-# Sphinx documentation
-docs/_build/
+#############################################
+# Python 相关
+#############################################
 
-# PyBuilder
-.pybuilder/
-target/
+__pycache__/             # Python 编译缓存目录
+*.py[cod]                # Python 编译后的字节码文件，如 .pyc/.pyo/.pyd
+*$py.class               # 部分 Python 环境生成的类文件
 
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
-
-# pyenv
-#   For a library or package, you might want to ignore these files since the code is
-#   intended to run in multiple environments; otherwise, check them in:
-# .python-version
-
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
-
-# poetry
-#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
-#poetry.lock
-
-# pdm
-#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
-#pdm.lock
-#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
-#   in version control.
-#   https://pdm.fming.dev/latest/usage/project/#working-with-version-control
-.pdm.toml
-.pdm-python
-.pdm-build/
-
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
+# 虚拟环境（venv 或 virtualenv 等）
+.venv/
 venv/
-ENV/
-env.bak/
-venv.bak/
+env/
 
-# Spyder project settings
-.spyderproject
-.spyproject
+#############################################
+# Node.js / JavaScript / TypeScript 相关
+#############################################
 
-# Rope project settings
-.ropeproject
+node_modules/            # Node.js 依赖目录
+.npm/                    # npm 缓存文件
+yarn-error.log
+npm-debug.log
+yarn-debug.log
+yarn-lock.log
+pnpm-lock.yaml
 
-# mkdocs documentation
-/site
+# 打包工具常见输出目录
+dist/
+build/
+tmp/
+out/
 
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
+#############################################
+# Java / Gradle / Maven 相关
+#############################################
 
-# Pyre type checker
-.pyre/
+*.class                  # Java 编译输出类文件
+*.jar                    # 打包生成的 JAR 文件
+*.war                    # Web 应用包
+*.ear                    # Enterprise 应用包
 
-# pytype static type analyzer
-.pytype/
+# Gradle
+.gradle/
+build/
 
-# Cython debug symbols
-cython_debug/
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
 
-# PyCharm
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
+#############################################
+# C / C++ / C# 编译输出
+#############################################
+
+*.o                      # C / C++ 编译输出对象文件
+*.obj                    # Visual Studio 编译输出对象文件
+*.so                     # Linux/Unix 共享库文件
+*.dll                    # Windows 动态链接库
+*.exe                    # Windows 可执行文件
+*.out                    # Unix-like 可执行文件
+*.lib                    # 静态库（Windows）
+*.a                      # 静态库（Unix-like）
+*.pdb                    # 调试文件（Windows）
+
+# C# 常见目录
+bin/
+obj/
+
+#############################################
+# Go 相关
+#############################################
+
+*.exe
+*.test
+*.out
+vendor/
+Gopkg.lock
+Gopkg.toml
+
+#############################################
+# Rust 相关
+#############################################
+
+/target/
+**/*.rs.bk
+
+#############################################
+# Logs / 临时文件
+#############################################
+
+*.log
+*.log.*
+.log/
+logs/
+*.swp
+*.swo
+*.tmp
+
+#############################################
+# 数据库 / 环境配置文件（如不需要版本管理可忽略）
+#############################################
+
+*.sqlite
+*.sqlite3
+*.db
+.env
+.env.*
+
+########################################################################################
+# 操作系统（OS）相关临时文件
+#############################################
+
+# macOS 产生的元数据文件
+.DS_Store                 # macOS 上常见的缓存文件
+.AppleDouble              # macOS 双流文件
+.LSOverride               # macOS Launch Services 缓存
+
+# 防止 macOS Finder 在 USB、网络驱动器等生成的文件
+._*
+
+# Windows 系统产生的文件
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux 常见的临时文件
+*~
+.nfs*
+
+#############################################
+# 常见编辑器 / IDE / 构建工具 相关文件
+#############################################
+
+# IntelliJ IDEA / Android Studio / PyCharm 等 JetBrains 系列
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# VS Code
+# !NOTE:忽略当前根目录 `/` 下的 .vscode/ 文件夹 及 文件夹下所有文件
+/.vscode/
+# !NOTE:不忽略当前根目录 `/` 下的 code_formatting_tool/.vscode/ 文件夹 及 文件夹下所有文件
+!code_formatting_tool/.vscode/
+
+
+# Visual Studio
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.pdb
+*.opendb
+*.VC.db
+.vs/
+
+# CMake 相关文件
+# CMakeCache.txt
+# CMakeFiles/
+# cmake-build-*/
+# Makefile
+# CMakeScripts/
+# Testing/
+# CTestTestfile.cmake
+# install_manifest.txt
+
+#############################################
+# Python 相关
+#############################################
+# !NOTE:忽略所有名为 __pycache__ 的目录，不管它在项目的哪一层。
+__pycache__
+**/__pycache__/          # Python 编译缓存目录
+*.py[cod]                # Python 编译后的字节码文件，如 .pyc/.pyo/.pyd
+*$py.class               # 部分 Python 环境生成的类文件
+
+# 虚拟环境（venv 或 virtualenv 等）
+.venv/
+venv/
+env/
+
+#############################################
+# Node.js / JavaScript / TypeScript 相关
+#############################################
+
+node_modules/            # Node.js 依赖目录
+.npm/                    # npm 缓存文件
+yarn-error.log
+npm-debug.log
+yarn-debug.log
+yarn-lock.log
+pnpm-lock.yaml
+
+# !NOTE: 打包工具常见输出目录
+dist/
+build/
+tmp/
+out/
+
+#############################################
+# Java / Gradle / Maven 相关
+#############################################
+
+*.class                  # Java 编译输出类文件
+*.jar                    # 打包生成的 JAR 文件
+*.war                    # Web 应用包
+*.ear                    # Enterprise 应用包
+
+# Gradle
+.gradle/
+build/
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+#############################################
+# C / C++ / C# 编译输出
+#############################################
+
+*.o                      # C / C++ 编译输出对象文件
+*.obj                    # Visual Studio 编译输出对象文件
+*.so                     # Linux/Unix 共享库文件
+*.dll                    # Windows 动态链接库
+*.exe                    # Windows 可执行文件
+*.out                    # Unix-like 可执行文件
+*.lib                    # 静态库（Windows）
+*.a                      # 静态库（Unix-like）
+*.pdb                    # 调试文件（Windows）
+
+# C# 常见目录
+bin/
+obj/
+
+#############################################
+# Go 相关
+#############################################
+
+*.exe
+*.test
+*.out
+vendor/
+Gopkg.lock
+Gopkg.toml
+
+#############################################
+# Rust 相关
+#############################################
+
+/target/
+**/*.rs.bk
+
+#############################################
+# Logs / 临时文件
+#############################################
+
+*.log
+*.log.*
+.log/
+logs/
+*.swp
+*.swo
+*.tmp
+
+#############################################
+# 数据库 / 环境配置文件（如不需要版本管理可忽略）
+#############################################
+
+*.sqlite
+*.sqlite3
+*.db
+.env
+.env.*
+
+#############################################
+# Docker / 容器编排相关（若项目不需要可删除）
+#############################################
+
+Dockerfile~
+docker-compose.override.yml
+.env.docker
+.env.production
+
+#############################################
+# 其他可以考虑忽略的文件或目录（根据需要启用/删除）
+#############################################
+
+# 自定义脚本输出目录
+scripts_output/
+
+# 如果你的项目不需要忽略根目录下的某些特定文件，可用 “!” 进行否定
+# !NOTE:忽略所有名为 cache_figures 临时生成图片
+temp/
+**/cache_figures/
+cache_figure/
+**/inputs/*
+# But not 忽略inputs 中的 Scenario-dapai_intersection_1_3_4.json
+!inputs/Scenario-dapai_intersection_1_3_4.json
+!inputs/Scenario-jiangtong_intersection_9_3_2.json
+**/outputs/*
+# !outputs/log_file_list.csv

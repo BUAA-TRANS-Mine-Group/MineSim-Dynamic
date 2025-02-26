@@ -1,0 +1,104 @@
+hydra: # Hydra 的根节点，用于配置 Hydra 运行参数
+  run:
+    dir: ${output_dir} # 运行时的output_dir目录，会被 output_dir 占位符动态替换
+  output_subdir: ${output_dir}/code/hydra # 存储 Hydra 配置拆分信息的目录，便于调试
+  searchpath: # Hydra 的搜索路径，仅 <exp_dir>（实验目录）部分能被发现
+    - file://devkit.script.config.common # 指定第一个搜索路径: common 配置文件所在目录
+    - file://devkit.script.config.sim_engine # 指定第二个搜索路径: sim_engine 配置文件所在目录
+
+defaults:
+  - _self_ # 让本文件自身在默认组合顺序中最先被加载
+  - default_experiment # 包含默认的 experiment 配置
+  - default_common # 包含默认的 common 配置
+
+  - callback:
+      - simulation_log_callback # 回调配置: 使用 simulation_log_callback
+  - main_callback:
+      - time_callback # main_callback 配置: 使用 time_callback
+
+  # ====================================================================================================
+  # ========== Simulation Engine Core Component Set ==========
+  # "replay_policy_agents_box_track",  # "Replay": Replay Policy
+  # "reactive_policy_agents_idm",  # "IDM":IDM-based Reactive Policy
+  # "reactive_policy_agents_idm_improved",  # "Improved_IDM":Improved IDM-based Reactive Policy
+  # "reactive_policy_agents_multimodal_trajectory_prediction",  # "MTP":  Multimodal Trajectory Prediction-based Reactive Policy
+  - observation_agent_update_policy: replay_policy_agents_box_track
+
+  # [two_stage_controller_ilqr_tracker_KBM,two_stage_controller_ilqr_tracker_KBM_wRL,perfect_tracking_controller] “默认使用 two_stage_controller_ilqr_tracker_KBM.yaml”,
+  # two_stage_controller 还需要配置 ego_motion_controller ego_update_mode
+  - ego_simulation: two_stage_controller_ilqr_tracker_KBM
+
+  # 可选: [simple_planner,idm_planner,frenet_optimal_planner,predefined_maneuver_mode_sampling_planner]
+  # !fop需要其它agent预测信息，目前只能使用 replay_policy_agents_box_track 提取真值
+  - planner: idm_planner
+  - simulation_time_controller: step_simulation_time_controller # 默认使用 step_simulation_time_controller
+  # ====================================================================================================
+
+  # ====================================================================================================
+  # ========== Metrics Evaluation Engine Set ==========
+  # - metric_aggregator:
+  #     - default_weighted_average
+  # ====================================================================================================
+
+  - override hydra/job_logging: none # 关闭 Hydra 的 job_logging 日志
+  - override hydra/hydra_logging: none # 关闭 Hydra 自身的 hydra_logging 日志
+
+# ====================================================================================================
+# ========== experiment set ==========
+experiment_name: "simulation_mode_0" # 实验名称
+job_name: "test_replay_policy_agents" # 写一个临时要测试的功能、工作 （job） 名字
+
+aggregated_metric_folder_name: "aggregator_metric" # 存储合并后 metric 的文件夹名称
+aggregator_save_path: ${output_dir}/${aggregated_metric_folder_name} # 合并后 metric 存储路径
+
+# Simulation Setup
+simulation_history_buffer_duration: 2.0 # 单位[s]，初始化 simulation history buffer 时回溯的时长;目前不可修改
+
+# GPU 资源分配
+# number_of_gpus_allocated_per_simulation 可以是整数或小数（例如 0.25），表示单次 simulation (per scenario & planner) 可用 GPU 数量
+# 若值 < 1，说明多个模型可共享一块 GPU。若为 0 或 null，则不使用 GPU，仅使用 CPU 进行 simulation
+# ----------
+# Number (or fractional, e.g., 0.25) of GPUs available for single simulation (per scenario and planner).
+# This number can also be < 1 because we allow multiple models to be loaded into a single GPU.
+# In case this number is 0 or null, no GPU is used for simulation and all cpu cores are leveraged
+# Note, that the user have to make sure that if a number < 1 is chosen, the model will fit 1 / num_gpus into GPU memory
+number_of_gpus_allocated_per_simulation: 0 # 这里设置为 0，表示完全禁用 GPU 进行仿真
+
+# CPU 资源分配
+# 若 number_of_cpus_allocated_per_simulation 为 null，则不限制 CPU 线程数（可能导致资源竞争或性能下降）
+# ----------
+# This number specifies number of CPU threads that are used for simulation
+# In case this is null, then each simulation will use unlimited resources.
+# That will typically swamp the host computer, leading to slowdowns and failure.
+number_of_cpus_allocated_per_simulation: 1 # 每次 simulation 分配一个 CPU 线程
+
+# 是否运行 metric
+run_metric: false # 设置为 true 表示进行 metric 计算;false 表示不进行 metric 计算
+
+# simulation_log_main_path
+# 若只想重新计算 metrics，而不想再运行 simulation，可指定已有的 log 路径
+simulation_log_main_path: null # 默认为 null，不使用已有 logs
+
+# 当出现 scenario 失败时，是否立刻退出 simulation
+exit_on_failure: false # 若为 false，表示即使个别 scenario 失败也会继续运行
+
+# 最大回调(worker)并发量
+# Maximum number of workers to be used for running simulation callbacks outside the main process
+max_callback_workers: 4 # 在主进程外并发执行 callbacks 时使用的最大 worker 数量
+
+# 是否在 Sequential worker 模式下禁用并行回调
+disable_callback_parallelization: true # 使用 sequential worker 时避免并行执行 on_simulation_end 回调
+
+# 分布式处理模式 (distributed_mode)
+# - SCENARIO_BASED: 两阶段分发；先获取所有 scenarios，再进行切分分配给不同 worker
+# - LOG_FILE_BASED: 单阶段分发；基于 log 文件拆分并分配
+# - SINGLE_NODE: 不进行分发，单节点处理
+# ----------
+# Distributed processing mode. If multi-node simulation is enable, this parameter selects how the scenarios distributed
+# to each node. The modes are:
+#  - SCENARIO_BASED: Works in two stages, first getting a list of all, scenarios to process, then breaking up that
+#                    list and distributing across the workers
+#  - LOG_FILE_BASED: Works in a single stage, breaking up the scenarios based on what log file they are in and
+#                    distributing the number of log files evenly across all workers
+#  - SINGLE_NODE: Does no distribution, processes all scenarios in config
+distributed_mode: "SINGLE_NODE" # 在此示例中选择单节点执行

@@ -1,0 +1,2 @@
+_target_: devkit.utils.multithreading.worker_sequential.Sequential
+_convert_: 'all'

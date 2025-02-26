@@ -1,0 +1,12 @@
+serialization_callback:
+  _target_: devkit.sim_engine.callback.serialization_callback.SerializationCallback
+  _convert_: "all"
+
+  folder_name: simulation # Name of a folder in which the serialization will take place # 将在其中进行序列化的文件夹的名称
+
+  # 如果为 true，则输出将是单个文件，如果为 False，则每个时间步的数据将序列化为一个文件
+  # If true, the output will be a single file, if False, the data will be serialized into one file per time step
+  serialize_into_single_file: true
+  
+  # A way to serialize output, options: ["json", "pickle", "msgpack"]
+  serialization_type: "pickle" 

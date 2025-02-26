@@ -1,0 +1,2 @@
+_target_: devkit.sim_engine.observation_manager.agent_update_policy.box_tracks_observation.BoxTracksObservation
+_convert_: 'all'

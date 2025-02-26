@@ -1,0 +1,24 @@
+frenet_optimal_planner:
+  _target_: devkit.sim_engine.planning.planner.local_planner.frenet_optimal_planner.FrenetOptimalPlanner
+  _convert_: "all"
+
+  planner_settings:
+    _target_: devkit.sim_engine.planning.planner.local_planner.frenet_optimal_planner.FrenetOptimalPlannerSettings
+    _convert_: all
+
+    num_width: 5 # road width方向的 sampling number
+    num_t: 5 # time sampling number 规划时间域的采样数量
+    num_speed: 5 # speed sampling number  速度采样数量
+
+    max_road_width: null # maximum road width [m]
+    highest_speed: null # highest sampling speed [m/s] 赋值为 None
+    lowest_speed: 0.0 # lowest sampling speed [m/s]
+    min_planning_t: 5.0 # 终点状态采样,时间轴 min [s] ;最小规划8秒,最大规划10秒,小于预测时域
+    max_planning_t: 7.0 # 终点状态采样,时间轴 max [s]
+
+  planned_trajectory_samples: 16 # Number of trajectory samples to generate
+  planned_trajectory_sample_interval: 0.5 # The sampling time interval between samples [s]
+  truck_lateral_expansion_factor: 1.3 #- 注意： 因为矿车较宽，增加一个侧向宽度膨胀系数,[m] float; 大于1.0
+
+  thread_safe: true # 构建 planner，确保只保留 1 个非线程安全的实例
+

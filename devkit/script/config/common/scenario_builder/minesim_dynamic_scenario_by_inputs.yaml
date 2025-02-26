@@ -1,0 +1,17 @@
+_target_: devkit.scenario_builder.minesim_scenario_json.minesim_dynamic_scenario_builder.MineSimDynamicScenarioBuilder
+_convert_: 'all'
+
+# data_root: ${oc.env:MINESIM_DYNAMIC_SCENARIO_ROOT}/devkit-v1.1/splits/minesim_dynamic_v_1_0
+data_root: ${oc.env:MINESIM_DATA_ROOT}
+map_root: ${oc.env:MINESIM_MAPS_ROOT}
+map_version: v_1_5
+# max_workers: null
+# verbose: ${verbose}
+
+# test set
+#  scenario_builder = MineSimDynamicScenarioBuilder(
+#         data_root=os.environ["MINESIM_DATA_ROOT"],
+#         map_root=os.environ["MINESIM_MAPS_ROOT"],
+#         map_version="v_1_5",
+#     )
+#     scenarios = scenario_builder.get_scenarios(so.scenario_list)

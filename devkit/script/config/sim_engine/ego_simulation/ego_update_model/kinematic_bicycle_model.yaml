@@ -1,0 +1,6 @@
+_target_: devkit.sim_engine.ego_simulation.ego_update_model.kinematic_bicycle_model.KinematicBicycleModel
+_convert_: 'all'
+
+# read scenario and real-time setup
+vehicle: null 
+max_steering_angle: null
