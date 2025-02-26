@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Any, Dict, List, Optional, Union
 
-from devkit.metrics.metric_dataframe import MetricStatisticsDataFrame
+from devkit.metrics_tool.metric_dataframe import MetricStatisticsDataFrame
 
 
 class MetricStatisticsType(Enum):

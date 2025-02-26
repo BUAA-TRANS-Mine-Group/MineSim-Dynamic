@@ -23,8 +23,8 @@ from devkit.scenario_builder.abstract_scenario import AbstractScenario
 from devkit.sim_engine.planning.planner.abstract_planner import AbstractPlanner
 from devkit.sim_engine.history.simulation_history import SimulationHistory
 from devkit.configuration.sim_engine_conf import SimConfig as sim_config
-from devkit.visualization.plot_data import AgentStatePlot
-from devkit.visualization.plot_data import SimulationIterationTimeSequence
+from devkit.visualization_tool.plot_data import AgentStatePlot
+from devkit.visualization_tool.plot_data import SimulationIterationTimeSequence
 
 logger = logging.getLogger(__name__)
 
@@ -320,7 +320,7 @@ class PlanVisualizer2D:
         """
         dir_outputs_figure = sim_config["directory_conf"]["dir_outputs_figure"]
         self.scenario_name = scenario.scenario_name
-        from devkit.visualization.configuration.visualizer_conf import log_number
+        from devkit.visualization_tool.configuration.visualizer_conf import log_number
 
         self.result_path_png = os.path.join(
             dir_outputs_figure,

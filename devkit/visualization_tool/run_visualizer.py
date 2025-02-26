@@ -32,7 +32,7 @@ sys.path.append(dir_parent_3)
 
 
 from devkit.sim_engine.log_api.simulation_log import SimulationLog
-from devkit.visualization.visualizer_2D import PlanVisualizer2D
+from devkit.visualization_tool.visualizer_2D import PlanVisualizer2D
 
 logger = logging.getLogger(__name__)
 
@@ -133,8 +133,8 @@ def run_visualizer(simulation_log: SimulationLog,dynamic_part_log_name:str):
 if __name__ == "__main__":
     # log_file_list = "/home/czf/project_czf/20240901-MineSim/MineSim-Dynamic-Dev-czf/MineSim-Dynamic-Dev/outputs/log_file_list.csv"
     # log_number = 2
-    from devkit.visualization.configuration.visualizer_conf import log_file_list
-    from devkit.visualization.configuration.visualizer_conf import log_number
+    from devkit.visualization_tool.configuration.visualizer_conf import log_file_list
+    from devkit.visualization_tool.configuration.visualizer_conf import log_number
 
     simulation_log,dynamic_part_log_name = get_simulation_log(log_file_list=log_file_list, log_number=log_number)
     run_visualizer(simulation_log=simulation_log,dynamic_part_log_name=dynamic_part_log_name)

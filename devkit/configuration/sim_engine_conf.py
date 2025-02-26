@@ -32,7 +32,7 @@ def get_config_directory(dir_name="dir_maps", specified_dir=None):
 
 
 SimConfig = {
-    "BASE_DEVKIT_PATH": "/home/czf/project_czf/20240901-MineSim/MineSim-Dynamic-Dev-czf/MineSim-Dynamic-Dev/devkit",
+    "BASE_DEVKIT_PATH": "/home/czf/project_czf/20240901-MineSim/MineSim-Dynamic-vscode/MineSim-Dynamic/devkit",
     "other_conf": {
         "is_visualize": True,
         "is_save_fig": True,
@@ -42,11 +42,11 @@ SimConfig = {
     "directory_conf": {
         "dir_datasets": get_config_directory(
             dir_name="dir_datasets",
-            specified_dir="/home/czf/project_czf/20240901-MineSim/MineSim-Dynamic-Dev-czf/datasets",
+            specified_dir="/home/czf/project_czf/20240901-MineSim/MineSim-Dynamic-vscode/datasets",
         ),
         "dir_maps": get_config_directory(
             dir_name="dir_maps",
-            specified_dir="/home/czf/project_czf/20240901-MineSim/MineSim-Dynamic-Dev-czf/datasets/maps",
+            specified_dir="/home/czf/project_czf/20240901-MineSim/MineSim-Dynamic-vscode/datasets/maps",
         ),
         "dir_inputs": get_config_directory(dir_name="dir_inputs"),
         "dir_outputs": get_config_directory(dir_name="dir_outputs"),

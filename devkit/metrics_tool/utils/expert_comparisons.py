@@ -8,7 +8,7 @@ from devkit.common.actor_state.state_representation import Point2D
 from devkit.common.actor_state.state_representation import StateSE2
 from devkit.common.geometry.compute import principal_value
 
-from devkit.metrics.utils.state_extractors import calculate_ego_progress_to_goal
+from devkit.metrics_tool.utils.state_extractors import calculate_ego_progress_to_goal
 
 
 def compute_traj_heading_errors(ego_traj: List[StateSE2], expert_traj: List[StateSE2]) -> npt.NDArray:  # type:ignore

@@ -32,7 +32,7 @@ from devkit.common.actor_state.vehicle_parameters import VehicleParameters
 from devkit.common.geometry.transform import transform
 from devkit.common.trajectory.interpolated_trajectory import InterpolatedTrajectory
 from devkit.common.trajectory.abstract_trajectory import AbstractTrajectory
-from devkit.metrics.utils.expert_comparisons import principal_value
+from devkit.metrics_tool.utils.expert_comparisons import principal_value
 
 from devkit.sim_engine.environment_manager.collision_lookup import CollisionLookup
 from devkit.sim_engine.environment_manager.collision_lookup import VehicleType

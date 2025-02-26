@@ -1,7 +1,7 @@
 from abc import ABCMeta, abstractmethod
 from typing import List, Optional
 
-from devkit.metrics.metric_result import MetricStatistics, Statistic, TimeSeries
+from devkit.metrics_tool.metric_result import MetricStatistics, Statistic, TimeSeries
 from devkit.scenario_builder.abstract_scenario import AbstractScenario
 from devkit.sim_engine.history.simulation_history import SimulationHistory
 

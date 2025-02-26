@@ -7,7 +7,7 @@ from devkit.common.actor_state.ego_state import EgoState
 from devkit.common.actor_state.scene_object import SceneObject
 from devkit.common.actor_state.tracked_objects_types import TrackedObjectType
 
-from devkit.metrics.metric_result import MetricStatisticsType, Statistic
+from devkit.metrics_tool.metric_result import MetricStatisticsType, Statistic
 
 VRU_types = [
     TrackedObjectType.PEDESTRIAN,

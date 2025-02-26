@@ -11,7 +11,7 @@ from devkit.common.actor_state.tracked_objects import TrackedObject
 from devkit.common.actor_state.tracked_objects import TrackedObjects
 from devkit.common.geometry.transform import rotate_angle
 from devkit.sim_engine.map_manager.abstract_map import AbstractMap
-from devkit.metrics.utils.expert_comparisons import principal_value
+from devkit.metrics_tool.utils.expert_comparisons import principal_value
 
 from devkit.sim_engine.map_manager.occupancy_map.abstract_occupancy_map import OccupancyMap
 from devkit.sim_engine.observation_manager.agent_update_policy.idm.idm_agent import IDMAgent

@@ -97,18 +97,18 @@ from devkit.common.utils.split_state import SplitState
 from devkit.configuration.vehicle_conf import vehicle_conf
 from devkit.configuration.sim_engine_conf import SimConfig as sim_config
 
-from devkit.metrics.abstract_metric import AbstractMetricBuilder
-from devkit.metrics.metric_dataframe import MetricStatisticsDataFrame
-from devkit.metrics.metric_file import MetricFileKey
-from devkit.metrics.metric_file import MetricFile
-from devkit.metrics.metric_result import MetricStatisticsType
+from devkit.metrics_tool.abstract_metric import AbstractMetricBuilder
+from devkit.metrics_tool.metric_dataframe import MetricStatisticsDataFrame
+from devkit.metrics_tool.metric_file import MetricFileKey
+from devkit.metrics_tool.metric_file import MetricFile
+from devkit.metrics_tool.metric_result import MetricStatisticsType
 
-from devkit.metrics.utils.collision_utils import VRU_types
-from devkit.metrics.utils.collision_utils import object_types
-from devkit.metrics.utils.collision_utils import CollisionType
-from devkit.metrics.utils.collision_utils import ego_delta_v_collision
-from devkit.metrics.utils.collision_utils import get_fault_type_statistics
-from devkit.metrics.utils.state_extractors import approximate_derivatives
+from devkit.metrics_tool.utils.collision_utils import VRU_types
+from devkit.metrics_tool.utils.collision_utils import object_types
+from devkit.metrics_tool.utils.collision_utils import CollisionType
+from devkit.metrics_tool.utils.collision_utils import ego_delta_v_collision
+from devkit.metrics_tool.utils.collision_utils import get_fault_type_statistics
+from devkit.metrics_tool.utils.state_extractors import approximate_derivatives
 
 
 from devkit.scenario_builder.scenario_utils import sample_indices_with_time_horizon

@@ -17,7 +17,7 @@ from devkit.common.actor_state.state_representation import TimePoint
 from devkit.common.actor_state.vehicle_parameters import VehicleParameters
 from devkit.common.geometry.transform import transform
 from devkit.common.trajectory.interpolated_trajectory import InterpolatedTrajectory
-from devkit.metrics.utils.expert_comparisons import principal_value
+from devkit.metrics_tool.utils.expert_comparisons import principal_value
 
 from devkit.sim_engine.map_manager.abstract_map import AbstractMap
 from devkit.sim_engine.map_manager.occupancy_map.abstract_occupancy_map import OccupancyMap

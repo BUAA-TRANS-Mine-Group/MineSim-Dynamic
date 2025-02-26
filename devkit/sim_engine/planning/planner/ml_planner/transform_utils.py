@@ -8,7 +8,7 @@ from devkit.common.actor_state.ego_state import EgoState
 from devkit.common.actor_state.state_representation import StateSE2, StateVector2D, TimePoint
 from devkit.common.actor_state.vehicle_parameters import VehicleParameters
 from devkit.common.geometry.convert import relative_to_absolute_poses
-from devkit.metrics.utils.state_extractors import approximate_derivatives
+from devkit.metrics_tool.utils.state_extractors import approximate_derivatives
 
 
 def _se2_vel_acc_to_ego_state(

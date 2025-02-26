@@ -4,7 +4,7 @@ import logging
 from dataclasses import dataclass, field
 from typing import Any, Dict, List
 
-from devkit.metrics.metric_result import MetricStatistics
+from devkit.metrics_tool.metric_result import MetricStatistics
 
 logger = logging.getLogger(__name__)
 
